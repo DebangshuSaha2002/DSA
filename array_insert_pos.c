@@ -54,7 +54,7 @@ int main()
     }
     arr[position-1]=value;
     //After adding element
-    for(int i=0;i<n;i++)
+    for(int i=0;i<=n;i++)
     {
         printf("The element at index %d is %d\n",i,arr[i]);
     }
