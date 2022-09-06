@@ -41,6 +41,7 @@ struct node *insert(struct node *head3,int ex,int co)
 {
     struct node *ptr;
     struct node *new;
+    head3=NULL;
     new=(struct node *)malloc(sizeof(struct node));
     new->ex=ex;
     new->co=co;
@@ -61,11 +62,13 @@ struct node *insert(struct node *head3,int ex,int co)
     return (head3);
 }
 
-void polyadd(struct node *head1,struct node *head2,struct node *head3)
+struct node * polyadd(struct node *head1,struct node *head2)
 {
     struct node *ptr1,*ptr2;
+    struct node *head3;
     ptr1=head1;
     ptr2=head2;
+    head3=NULL;
     while(ptr1!=NULL && ptr2!=NULL)
     {
         if(ptr1->ex == ptr2->ex)
@@ -95,7 +98,7 @@ void polyadd(struct node *head1,struct node *head2,struct node *head3)
             ptr1=ptr1->next;
         }
     }
-    // return head3;
+    return head3;
 }
 
 void display(struct node *head)
@@ -111,14 +114,16 @@ void display(struct node *head)
 int main()
 {
     struct node *head1;
-    struct node *head2,*poly;
+    struct node *head2;
+    struct node *poly;
+    poly=NULL;
     printf("For polynomial 1: \n");
     create(head1);
     printf("\nFor polynomial 2: \n");
     create(head2);
-    poly=(struct node *)malloc(sizeof(struct node));
     printf("\nNow adding the 2 polynomials: \n");
-    polyadd(head1,head2,poly);
+    poly=(struct node *)malloc(sizeof(struct node));
+    poly=polyadd(head1,head2);
     display(poly);
     return 0;
 }
