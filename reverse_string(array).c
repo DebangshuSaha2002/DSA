@@ -1,15 +1,15 @@
 #include<stdio.h>
-#include<stdlib.h>
 #include<string.h>
 
-char stack[100];
 int top;
+int maxsize=100;
+char stack[100];
 
 void push(char c)
 {
-    if(top==100)
+    if(top>=maxsize)
     {
-        printf("OVERFLOW\n");
+        printf("OVERFLOW");
     }
     else
     {
@@ -22,7 +22,7 @@ void pop()
 {
     if(top==-1)
     {
-        printf("UNDERFLOW\n");
+        printf("\nUNDERFLOW");
     }
     else
     {
@@ -34,14 +34,13 @@ void pop()
 int main()
 {
     top=-1;
-    char str[]="Debangshu";
+    char str[]="HelloWorld";
     int len=strlen(str);
 
     for(int i=0;i<len;i++)
     {
         push(str[i]);
     }
-
     for(int i=0;i<len;i++)
     {
         pop();
