@@ -8,6 +8,14 @@ struct node
     struct node *prev;
 }*head=NULL;
 
+void insert_first();
+void insert_pos();
+void insert_last();
+void del_first();
+void del_last();
+void del_pos();
+void ll_traversal();
+
 void ll_traversal()
 {
     struct node *ptr;
@@ -18,38 +26,6 @@ void ll_traversal()
         ptr=ptr->next;
     }
 }
-
-// void reverse(struct node * head)
-// {
-//     struct node *ptr;
-//     ptr=head;
-//     while(ptr!=NULL)
-//     {
-//         ptr=ptr->next;
-//     }
-
-//     while(ptr!=NULL)
-//     {
-//         printf("Element: %d\n",ptr->data);
-//         ptr=ptr->prev;
-//     }
-//     ll_traversal();
-// }
-
-
-// struct node * traverse_last(struct node *head)
-// {
-//     struct node *ptr;
-//     ptr=head;
-//     struct node *tail;
-//     tail=ptr;
-//     int x;
-//     while(tail->next!=NULL)
-//     {
-//         tail=tail->next;
-//     }
-//     return tail;
-// }
 
 void insert_last()
 {
@@ -124,13 +100,16 @@ void insert_first()
     ll_traversal();
 }
 
-void insert_pos(int pos)
+void insert_pos()
 {
     int count=1;
     struct node *new,*ptr;
-    int value;
+    int value,pos;
+    ptr=head;
     printf("Inserting at a position: \n");
-    printf("Enter the value: ");
+    printf("\nEnter the postion: ");
+    scanf("%d",&pos);
+    printf("\nEnter the value: ");
     scanf("%d",&value);
     new=(struct node *)malloc(sizeof(struct node));
     new->data=value;
@@ -143,6 +122,61 @@ void insert_pos(int pos)
     new->prev=ptr;
     ptr->next->prev=new;
     ptr->next=new;
+    ll_traversal();
+}
+
+void del_first()
+{
+    struct node * ptr;
+    ptr=head;
+    if(head==NULL)
+    {
+        printf("Deletion not possible\n");
+        exit(0);
+    }
+    else
+    {
+        head=head->next;
+        head->prev=NULL;
+        free(ptr);
+    }
+    printf("\nDeleting the data at the first position:\n");
+    ll_traversal();
+}
+
+void del_last()
+{
+    struct node * ptr, *temp;
+    ptr=head;
+    while(ptr->next!=NULL)
+    {
+        ptr=ptr->next;
+    }
+    temp=ptr;
+    ptr=ptr->prev;
+    ptr->next=NULL;
+    free(temp);
+    printf("\nDeleting the data at the last position:\n");
+    ll_traversal();
+}
+
+void del_pos()
+{
+    int pos,count=1;
+    printf("\nEnter the position to delete: ");
+    scanf("%d",&pos);
+    printf("\nDeleting at position %d\n",pos);
+    struct node * ptr,*temp;
+    ptr=head;
+    while(ptr!=NULL && count!=pos-1)
+    {
+        ptr=ptr->next;
+        count++;
+    }
+    temp=ptr->next;
+    ptr->next=temp->next;
+    temp->next->prev=ptr;
+    free(temp);
     ll_traversal();
 }
 
@@ -159,10 +193,10 @@ int main()
     // ptr=head;
     insert_first();
     insert_last();
-    int n;
-    printf("\nEnter the postion: ");
-    scanf("%d",&n);
-    insert_pos(n);
+    insert_pos();
+    del_first();
+    del_last();
+    del_pos();
     // insert_last(head);
     //reverse(head);
     return 0;
