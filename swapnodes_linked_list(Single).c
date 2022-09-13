@@ -78,7 +78,7 @@ int main()
     adding_to_ll(ptr,new);
     linked_list_traversal();
     swapnodes();
-    printf("\nAfter swapping 2nd and 5th data\n");
+    printf("\nAfter swapping 2nd and 4th node\n");
     linked_list_traversal();
 
     return 0;
