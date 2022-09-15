@@ -51,12 +51,40 @@ int main()
     top=-1;
     printf("Enter the maxsize:");
     scanf("%d",&maxsize);
-    push();
-    push();
-    push();
-    push();
-    push();
-    pop();
-    display();
+    int choice;
+    printf("\n1:PUSH\n2:POP\n3:DISPLAY\n4:EXIT\n");
+    int i=0;
+    while(i!=1)
+    {
+        printf("Enter your choice: ");
+        scanf("%d",&choice);
+
+        switch (choice)
+        {
+            case 1:
+            {
+                push();
+                printf("\n");
+                break;
+            }
+            case 2:
+            {
+                pop();
+                printf("\n");
+                break;
+            }
+            case 3:
+            {
+                display();
+                printf("\n");
+                break;
+            }
+            default:
+            {
+                printf("OVER\n");
+                i=1;
+            }
+        }
+    }
     return 0;
 }
