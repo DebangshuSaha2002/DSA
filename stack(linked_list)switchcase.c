@@ -54,13 +54,10 @@ int main()
     top=NULL;
     int value;
     int choice;
-    // printf("\n1.PUSH\n2.POP\n3.Display Stack\n4.Exit\n");
-    // printf("Enter your choice: ");
-    // scanf("%d",&choice);
+    printf("\n1.PUSH\n2.POP\n3.Display Stack\n4.Exit\n");
     do
     {
-        printf("\n1.PUSH\n2.POP\n3.Display Stack\n4.Exit\n");
-        printf("Enter your choice: ");
+        printf("\nEnter your choice: ");
         scanf("%d",&choice);
         switch (choice)
         {
