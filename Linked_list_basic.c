@@ -93,7 +93,7 @@ void del_last()
         ptr=ptr->next;
     }
     ptr->next=NULL;
-    
+    linkedListTraversal(head);
 }
 
 void del_pos(int pos)
