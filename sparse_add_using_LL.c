@@ -74,12 +74,13 @@ int main()
     scanf("%d %d",&m,&n);
 	int sparseMatric[m][n];
     int sparseMatric1[m][n];
-    printf("Enter elements:\n");
+    printf("Enter elements for sparse matrix 1:\n");
     for(int i=0;i<m;i++){
         for(int j=0;j<n;j++){
             scanf("%d",&sparseMatric[i][j]);
         }
     }
+    printf("Enter elements for sparse matrix 2:\n");
     for(int i=0;i<m;i++){
         for(int j=0;j<n;j++){
             scanf("%d",&sparseMatric1[i][j]);

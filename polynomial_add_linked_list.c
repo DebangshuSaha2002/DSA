@@ -41,7 +41,6 @@ struct node *insert(struct node *head3,int ex,int co)
 {
     struct node *ptr;
     struct node *new;
-    head3=NULL;
     new=(struct node *)malloc(sizeof(struct node));
     new->ex=ex;
     new->co=co;
@@ -79,12 +78,12 @@ struct node * polyadd(struct node *head1,struct node *head2)
         }
         else if(ptr1->ex < ptr2->ex)
         {
-            head3=insert(head3,ptr2->ex,ptr1->co+ptr2->co);
+            head3=insert(head3,ptr2->ex,ptr2->co);
             ptr2=ptr2->next;
         }
         else
         {
-            head3=insert(head3,ptr1->ex,ptr1->co+ptr2->co);
+            head3=insert(head3,ptr1->ex,ptr1->co);
             ptr1=ptr1->next;
         }
         while(ptr2!=NULL)
@@ -119,8 +118,10 @@ int main()
     poly=NULL;
     printf("For polynomial 1: \n");
     create(head1);
+    display(head1);
     printf("\nFor polynomial 2: \n");
     create(head2);
+    display(head2);
     printf("\nNow adding the 2 polynomials: \n");
     poly=(struct node *)malloc(sizeof(struct node));
     poly=polyadd(head1,head2);

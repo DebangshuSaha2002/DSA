@@ -73,16 +73,11 @@ int main()
     printf("Enter number of rows and columns: ");
     scanf("%d %d",&m,&n);
 	int sparseMatric[m][n];
-    int sparseMatric1[m][n];
+
     printf("Enter elements:\n");
     for(int i=0;i<m;i++){
         for(int j=0;j<n;j++){
             scanf("%d",&sparseMatric[i][j]);
-        }
-    }
-    for(int i=0;i<m;i++){
-        for(int j=0;j<n;j++){
-            scanf("%d",&sparseMatric1[i][j]);
         }
     }
 
@@ -96,12 +91,5 @@ int main()
 
 	PrintList(start);
 
-    for (int i = 0; i < m; i++)
-		for (int j = 0; j < n; j++)
-
-			if (sparseMatric1[i][j] != 0)
-				create_new_node(&start, sparseMatric1[i][j], i, j);
-
-	PrintList(start);
 	return 0;
 }
