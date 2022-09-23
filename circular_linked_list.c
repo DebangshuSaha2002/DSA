@@ -9,14 +9,14 @@ struct node
 
 void traversal(struct node * ptr);
 
-struct node * insert_first()
+void insert_first()
 {
     struct node * new;
     struct node * ptr;
     new=(struct node *) malloc(sizeof(struct node));
     printf("Enter the value: ");
     scanf("%d",&new->data);
-    new->next=head;
+    new->next=NULL;
     head=new;
     ptr=head;
     while(ptr->next!=NULL)
@@ -24,9 +24,10 @@ struct node * insert_first()
         ptr=ptr->next;
     }
     ptr->next=new;
-    ptr=head;
+    new->next=head->next;;
+    head=new;
     printf("\nAfter inserting at first:\n");
-    return ptr;
+    traversal(head);
 }
 
 void adding_ll(struct node * ptr,struct node * new)
