@@ -13,6 +13,10 @@ void inputmatrix(int m,int n,int arr[m][n])
     }
 }
 
+void printit(int row,int col,int mat[row][col])
+{
+    
+}
 int main()
 {
     int row;
