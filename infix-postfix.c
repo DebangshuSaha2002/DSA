@@ -6,8 +6,7 @@ int top = -1;
 
 void push(char x)
 {
-    top++;
-    stack[top] = x;
+    stack[++top] = x;
 }
 
 char pop()
@@ -15,8 +14,7 @@ char pop()
     if(top == -1)
         return -1;
     else
-        return stack[top];
-        top--;
+        return stack[top--];
 }
 
 int priority(char x)
