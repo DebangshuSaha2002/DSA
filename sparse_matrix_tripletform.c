@@ -55,6 +55,7 @@ void sparse_to_triplet(int r,int c,int a[r][c])
     }
 
     printf("\nPrinting the triplet form of sparse matrix:\n");
+    printf("\nRow\tColumn\tValue\n");
     for(int i=0;i<size;i++)
     {
         for(int j=0;j<3;j++)
