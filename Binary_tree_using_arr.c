@@ -1,3 +1,5 @@
+//Traversal using recursion
+
 #include<stdio.h>
 void build_tree(int t[],int index,int item)
 {
