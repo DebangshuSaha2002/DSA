@@ -66,6 +66,10 @@ void PrintList(struct Node* start)
 	printf("\n");
 }
 
+void add_sparse(struct node * start)
+{
+    
+}
 
 int main()
 {
